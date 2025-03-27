@@ -1,14 +1,45 @@
 # Restaurant-Order-Analysis
-This project explores and analyzes order data of Taste of the World cafe to identify the most and least popularmenu items and types of cuisine.  
-The goal of this project is to explore the menu and identify which items are doing well or not well and what the top customers seems to like best.  
+This project explores and analyzes order data of **Taste of the World Cafe** focusing on customer purchases of the restaurant's new menu items between January and March 2023.   
+The goal of this project is to identify which menu items are doing well and which are not, as well as to analyze customer preferences and make recommendations for improving restaurant operations.  
 
 🚀 **Project Overview**  
 This project is part of a guided course from [Maven Analytics](https://www.mavenanalytics.io/). The dataset and project structure were provided, but all **data preparation, analysis, and visualization were completed by me**.
 
-## 📚 What I Learned
-- Data exploration & preparation for analysis.
-- Slicing and dicing the data with Excel Pivot Tables.
-- Data visualization with Pivot Charts and creation of interactive Dashboard 
+## 📚 Project Steps
+### Overview of the Dataset
+
+The original dataset consists of **two tables**:
+1. **`menu_items`**: Contains information about the menu, including item names, categories, and prices.
+2. **`order_details`**: Contains data on customer orders, linking order IDs to menu items, and recording order dates and times.
+
+Together, these tables allow for a comprehensive analysis of menu performance and customer behavior.
+
+### Step 1: Explore the `menu_items` table
+To get an idea of what's on the new menu, I explored the `menu_items` table, which includes details like item names, categories, and prices.
+
+```sql
+SELECT * FROM menu_items;
+
+
+
+
+
+### Data Exploration and Preparation:
+1. **Exploring the `menu_items` table**:  
+   The first step was to explore the `menu_items` table to understand the available menu items and their attributes, such as item names, categories, and prices.
+
+   <img src="Images/menu_items_table.png" width="400" />  
+   _This snapshot shows the menu items, with categories like "American" and "Asian" and the corresponding prices._
+
+2. **Understanding the number of items**:  
+   I used a `COUNT` function to determine how many items are on the menu.
+
+   ```sql
+   SELECT COUNT(*) FROM menu_items;
+- Data exploration and preparation for analysis.
+- Joining multiple tables to analyze customer order behavior.
+- Analyzing trends and customer preferences through SQL queries.
+- Generating reports and insights to help make business decisions.
 
 ## 💻  Technology Used:
 SQL (MySQL Workbench)
@@ -19,7 +50,18 @@ To explore the analysis, open the following link:
 👉 [Explore Analysis and Dashboards](https://1drv.ms/x/s!AotNo-BOT0J6oXo2PvooiMvfgeYd?e=iVqcbU) (Recommended: Open link in a new tab)  
 👉 Prefer a quick look? Scroll down to preview key data insights and dashboards for each shop—no need to open the full project!
 
-## 📸 Preview of Dashboards and Data Visualizations
+## 📸 Preview of Tables and Data Visualizations
+**Menu Items Table Overview** (_A snapshot of the menu items, including item names, categories, and prices._)
+  
+  <img src="Images/menu_items_table.png" width="400" />  
+   
+
+**Order Details Table Overview** A snapshot of customer orders showing order IDs, items ordered, and timestamps.
+
+<img src="Images/order_details_table.png" width="400" /> 
+
+
+An overview of insights into customer order behavior and trends.📸 Preview of Dashboards and Data Visualizations
 
 1. **Data Exploration Overview**  
    ![Data Exploration](%20A_Data%20Exploration.png)
