@@ -14,7 +14,7 @@ Together, these tables allow for a comprehensive analysis of menu performance an
 - Analyze Customer Order Behavior: Track total orders, order frequency, and item popularity.
 - Identify Revenue Drivers: Determine high-value orders and top-spending customers
 
-## 🍽️ Menu Analysis
+## 🍽️ Menu Analysis 
 ### 1. Explore the `menu_items` table
 This includes details like item names, categories, and prices.  
    ```sql
