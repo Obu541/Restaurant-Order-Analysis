@@ -14,6 +14,15 @@ Together, these tables allow for a comprehensive analysis of menu performance an
 - Analyze Customer Order Behavior: Track total orders, order frequency, and item popularity.
 - Identify Revenue Drivers: Determine high-value orders and top-spending customers
 
+## 💻  Technology Used:
+SQL (MySQL Workbench)
+
+## 🚀 How to Use This Project
+To explore the analysis, open SQL_Files Folder and download all .sql files to your computer:
+👉 [Explore Analysis and Dashboards](https://1drv.ms/x/s!AotNo-BOT0J6oXo2PvooiMvfgeYd?e=iVqcbU)   
+   (Recommended: Open link in a new tab)  
+👉 Prefer a quick look? Scroll down to preview key data insights and dashboards for each shop—no need to open the full project!
+
 ## 🍽️ Menu Analysis 
 ### 1. Explore the `menu_items` table
 This includes details like item names, categories, and prices.  
@@ -173,19 +182,22 @@ ORDER BY num_items DESC;
 <img src="Images/3_4.png" width="400" />
 
 ### 5. Viewing the details of the Top 5 Highest Spent Orders
-As the top 5 of the highest 
+As the top 5 of the highest orders was identifyed earlier, in this step it is important look on them more in detail.
+```sql
+SELECT order_id, category, COUNT(item_id) AS num_items 
+FROM order_details od LEFT JOIN menu_items mi
+	ON od.item_id = mi.menu_item_id
+WHERE order_id IN (440, 2075, 1957, 330, 2675)
+GROUP BY order_id, category;
+```
+<img src="Images/3_5.png" width="200" />
 
+- The analysis showed that Italian food was consistently the most popular in these high-value orders.
 
-
-
+ 
    
-- Data exploration and preparation for analysis.
-- Joining multiple tables to analyze customer order behavior.
-- Analyzing trends and customer preferences through SQL queries.
-- Generating reports and insights to help make business decisions.
 
-## 💻  Technology Used:
-SQL (MySQL Workbench)
+
 
 ## 🚀 How to Use This Project
 
