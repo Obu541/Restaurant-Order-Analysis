@@ -73,11 +73,32 @@ SELECT * FROM order_details;
 <img src="Images/order_details_table.png" width="400" />
 
 ### 2. Finding the date range of the table
-The earliest and latest dates within the order_details table - 
+The earliest date is 01/01/2023 and the latest date is 03/31/2023  
 ```sql
 SELECT MIN(order_date), MAX(order_date) FROM order_details;
 ```
+<img src="Images/2_2.png" width="200" />
 
+### 3. Counting the number of orders in the date range
+Number of orders - 5370
+```sql
+SELECT COUNT(*) FROM
+(SELECT order_id, COUNT(item_id) AS num_items 
+FROM order_details
+GROUP BY order_id
+HAVING num_items > 12) AS num_orders;
+```
+<img src="Images/2_3.png" width="200" />
+
+### 4. Counting the total number of items ordered
+Total number of items - 12234
+```sql
+SELECT COUNT(*) FROM order_details;
+```
+<img src="Images/2_4.png" width="100" />
+
+### 5. Finding the orders with the most i
+<img src="Images/2_5.png" width="150" />
 
 
 
