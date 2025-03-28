@@ -11,31 +11,26 @@ This project is part of a guided course from [Maven Analytics](https://www.maven
 The original dataset consists of **two tables**:
 1. **`menu_items`**: Contains information about the menu, including item names, categories, and prices.
 2. **`order_details`**: Contains data on customer orders, linking order IDs to menu items, and recording order dates and times.
-
 Together, these tables allow for a comprehensive analysis of menu performance and customer behavior.
 
 ### Step 1: Explore the `menu_items` table
-To get an idea of what's on the new menu, I explored the `menu_items` table, which includes details like item names, categories, and prices.
 
-```sql
-SELECT * FROM menu_items;
+To get an idea of what's on the new menu, I explored the `menu_items` table, which includes details like item names, categories, and prices.  
+   ```sql
+   SELECT * FROM menu_items;
+   ```
+<img src="Images/menu_items_table.png" width="400" />
 
+- **What I learned:** This step helped me understand the range of items on the menu and provided an overview of the restaurant's offerings.
 
-
-
-
-### Data Exploration and Preparation:
-1. **Exploring the `menu_items` table**:  
-   The first step was to explore the `menu_items` table to understand the available menu items and their attributes, such as item names, categories, and prices.
-
-   <img src="Images/menu_items_table.png" width="400" />  
-   _This snapshot shows the menu items, with categories like "American" and "Asian" and the corresponding prices._
-
-2. **Understanding the number of items**:  
+### Step 2: Understanding the number of items  
    I used a `COUNT` function to determine how many items are on the menu.
 
    ```sql
    SELECT COUNT(*) FROM menu_items;
+   ```
+
+   
 - Data exploration and preparation for analysis.
 - Joining multiple tables to analyze customer order behavior.
 - Analyzing trends and customer preferences through SQL queries.
