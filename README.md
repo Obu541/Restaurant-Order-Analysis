@@ -135,15 +135,16 @@ FROM order_details od LEFT JOIN menu_items mi
 ```
 <img src="Images/3_1.png" width="500" />
 
-### 2. Identifying the least and most Ordered Items, and their Categories
-The least ordered item is **Chicken Tacos** (Mexican)- 123   
-The most ordered items is **Humburger**(American)-622
+### 2. Identifying the top 5 least and most Ordered Items, their Categories and Prices
+The top 5 least ordered item are **Chicken Tacos** (Mexican),    
+The top 5 most ordered items are  **Humburger**(American),
 ```sql
 SELECT item_name, COUNT(order_details_id) AS num_purchases
 FROM order_details od LEFT JOIN menu_items mi
 ON od.item_id = mi.menu_item_id
 GROUP BY item_name
-Order by num_purchases;
+Order by num_purchases
+Limit 5;
 ```
 <img src="Images/3_2_1.png" width="500" />
 
@@ -152,7 +153,8 @@ SELECT item_name, COUNT(order_details_id) AS num_purchases
 FROM order_details od LEFT JOIN menu_items mi
 ON od.item_id = mi.menu_item_id
 GROUP BY item_name
-Order by num_purchases DESC;
+Order by num_purchases DESC
+Limit 5;
 ``` 
 <img src="Images/3_2_2.png" width="500" />
 
@@ -197,7 +199,8 @@ GROUP BY order_id, category;
 ## 🔥 Key Insights:
 ### 1. Menu Composition & Pricing Analysis:
 - The menu consists of 32 dishes, with a mix of categories including American, Asian, Italian, and Mexican.
-- The most expensive item is Shrimp Scampi ($19.95), however the Humburger is the most popular.### 2. Customer Preferences & Ordering Trends:
+- The most expensive item is Shrimp Scampi ($19.95), the least expensive 
+### 2. Customer Preferences & Ordering Trends:
 
 Hamburgers (American) and Chicken Tacos (Mexican) are the most ordered items, with Hamburgers having the highest number of purchases.
 
