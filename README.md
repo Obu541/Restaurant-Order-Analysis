@@ -19,7 +19,7 @@ SQL (MySQL Workbench)
 
 ## 🚀 How to Use This Project
 To explore the analysis, open SQL_Files Folder and download all .sql files to your computer:
-👉 [Explore Analysis and Dashboards](https://1drv.ms/x/s!AotNo-BOT0J6oXo2PvooiMvfgeYd?e=iVqcbU)   
+👉 [Open SQL_Files](https://github.com/Obu541/Restaurant-Order-Analysis/tree/main/SQL_Files)   
    (Recommended: Open link in a new tab)  
 👉 Prefer a quick look? Scroll down to preview key data insights and dashboards for each shop—no need to open the full project!
 
@@ -194,48 +194,22 @@ GROUP BY order_id, category;
 
 - The analysis showed that Italian food was consistently the most popular in these high-value orders.
 
- 
-   
-
-
-
-## 🚀 How to Use This Project
-
-To explore the analysis, open the following link:
-👉 [Explore Analysis and Dashboards](https://1drv.ms/x/s!AotNo-BOT0J6oXo2PvooiMvfgeYd?e=iVqcbU) (Recommended: Open link in a new tab)  
-👉 Prefer a quick look? Scroll down to preview key data insights and dashboards for each shop—no need to open the full project!
-
-## 📸 Preview of Tables and Data Visualizations
-**Menu Items Table Overview** (_A snapshot of the menu items, including item names, categories, and prices._)
-  
-  <img src="Images/menu_items_table.png" width="400" />  
-   
-
-**Order Details Table Overview** A snapshot of customer orders showing order IDs, items ordered, and timestamps.
-
-<img src="Images/order_details_table.png" width="400" /> 
-
-
-An overview of insights into customer order behavior and trends.📸 Preview of Dashboards and Data Visualizations
-
-1. **Data Exploration Overview**  
-   ![Data Exploration](%20A_Data%20Exploration.png)
-
-2. **Astoria Shop Sales Dashboard**  
-   ![Astoria Shop](Astoria%20Shop.png)
-
-3. **Hell's Kitchen Shop Sales Dashboard**  
-   ![Hell's Kitchen Shop](Hell's%20Kitchen%20Shop.png)
-
-4. **Lower Manhattan Shop Sales Dashboard**  
-   ![Lower Manhattan Shop](Lower%20Manhattan%20Shop.png)
-
 ## 🔥 Key Insights:
-- All locations show a strong positive growth trend, suggesting increasing customer demand over time.  
-- Weekdays are consistently busy across all locations, especially in the morning hours between 7am and 10am,
-indicating a likely demand for breakfast items, coffee, and quick service.
-- However, the evening hours after 6 pm in Lower Manhattan and after 7 pm in Hell's Kithcen show very low transactions.   
-- Coffee is the primary driver of sales across all locations, with tea and bakery items contributing to a smaller extent.
+### 1. Menu Composition & Pricing Analysis:
+- The menu consists of 32 dishes, with a mix of categories including American, Asian, Italian, and Mexican.
+- The most expensive item is Shrimp Scampi ($19.95), however the Humburger is the most popular.### 2. Customer Preferences & Ordering Trends:
+
+Hamburgers (American) and Chicken Tacos (Mexican) are the most ordered items, with Hamburgers having the highest number of purchases.
+
+Shrimp Scampi is the most expensive dish, while Chicken Tacos is the least ordered.
+
+20 orders contain more than 12 items, indicating a possible opportunity for upselling and bundle promotions.
+
+Revenue & Spending Insights:
+
+Top spending orders range between $185.10 to $192.15, which suggests opportunities for targeting high-spending customers with premium options.
+
+Detailed analysis of the most expensive orders shows a preference for Italian dishes such as Spaghetti & Meatballs and Fettuccine Alfredo.
 
 ## 💡 What recomendations can be offered:
 - Since the evening hours are not busy, the store may lose money by staying open after 6 pm. It’s worth considering adjusting the store’s operating hours.  
