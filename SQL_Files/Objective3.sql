@@ -6,18 +6,21 @@ SELECT *
 FROM order_details od LEFT JOIN menu_items mi
 	ON od.item_id = mi.menu_item_id;
 
--- 2. What were the least and most ordered items? What categories were they in?    
-SELECT item_name, COUNT(order_details_id) AS num_purchases
-FROM order_details od LEFT JOIN menu_items mi
-ON od.item_id = mi.menu_item_id
-GROUP BY item_name
-Order by num_purchases;
+-- 2. What were the top 5 the least and most ordered items? What categories were they in?    
 
-SELECT item_name, category, COUNT(order_details_id) AS num_purchases
+SELECT item_name, price, category, COUNT(order_details_id) AS num_purchases
 FROM order_details od LEFT JOIN menu_items mi
 ON od.item_id = mi.menu_item_id
 GROUP BY item_name, category
-Order by num_purchases;
+Order by num_purchases
+Limit 5;
+
+SELECT item_name, price, category, COUNT(order_details_id) AS num_purchases
+FROM order_details od LEFT JOIN menu_items mi
+ON od.item_id = mi.menu_item_id
+GROUP BY item_name, category
+Order by num_purchases DESC
+Limit 5;
 
 -- 3. What were the top 5 orders that spent the most money?
 SELECT order_id, SUM(price) AS total_spend 
