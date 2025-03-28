@@ -64,7 +64,7 @@ FROM menu_items GROUP BY category;
 ```
 <img src="Images/1_6.png" width="200" />
 
-### 7. Calculate the average price per category
+### 7. 
 
 
 
