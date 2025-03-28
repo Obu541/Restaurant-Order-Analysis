@@ -2,33 +2,74 @@
 This project explores and analyzes order data of **Taste of the World Cafe** focusing on customer purchases of the restaurant's new menu items between January and March 2023.   
 The goal of this project is to identify which menu items are doing well and which are not, as well as to analyze customer preferences and make recommendations for improving restaurant operations.  
 
-🚀 **Project Overview**  
-This project is part of a guided course from [Maven Analytics](https://www.mavenanalytics.io/). The dataset and project structure were provided, but all **data preparation, analysis, and visualization were completed by me**.
-
-## 📚 Project Steps
-### Overview of the Dataset
-
-The original dataset consists of **two tables**:
+🚀 **Project Overview**
+- The original dataset consists of **two tables**:
 1. **`menu_items`**: Contains information about the menu, including item names, categories, and prices.
 2. **`order_details`**: Contains data on customer orders, linking order IDs to menu items, and recording order dates and times.
 Together, these tables allow for a comprehensive analysis of menu performance and customer behavior.
+- This project is part of a guided course from [Maven Analytics](https://www.mavenanalytics.io/). The dataset and project structure were provided, but all **data preparation, analysis, and visualization were completed by me**.
 
-### Step 1: Explore the `menu_items` table
+## 📚 Project Objectives:
+- Understand Menu Composition & Pricing: Identify the number of dishes, their price range, and distribution across categories.
+- Analyze Customer Order Behavior: Track total orders, order frequency, and item popularity.
+- Identify Revenue Drivers: Determine high-value orders and top-spending customers
 
+## Steps
+### 1. Explore the `menu_items` table
 To get an idea of what's on the new menu, I explored the `menu_items` table, which includes details like item names, categories, and prices.  
    ```sql
    SELECT * FROM menu_items;
    ```
 <img src="Images/menu_items_table.png" width="400" />
 
-- **What I learned:** This step helped me understand the range of items on the menu and provided an overview of the restaurant's offerings.
-
-### Step 2: Understanding the number of items  
-   I used a `COUNT` function to determine how many items are on the menu.
-
+### 2. Understanding the number of items  
+   Number of items on the menu – 32
    ```sql
    SELECT COUNT(*) FROM menu_items;
    ```
+<img src="Images/1_2.png" width="100" />
+
+###  3. Identify the least and most expensive items
+   Least expensive: Edamame(Asian) - $5.00  
+   Most expensive: Shrimp Scampi(Italian) - $19.95
+```sql
+SELECT * FROM menu_items ORDER BY price;
+SELECT * FROM menu_items ORDER BY price DESC;
+```
+<img src="Images/1_3_1.png" width="400" />
+<img src="Images/1_3_2.png" width="400" />
+
+### 4. Identify the number of Italian dishes on the menu
+   Number of Italian dishes on the menu - 9
+```sql
+SELECT COUNT(*) FROM menu_items WHERE category = "Italian";
+```
+<img src="Images/1_4.png" width="100" />
+
+### 5. Identify the least and most expensive Italian dishes  
+   Least expensive: Spaghetti - $14.50  
+   Most expensive: Shrimp Scampi - $19.95
+```sql
+SELECT * FROM menu_items WHERE category = "Italian" ORDER BY price;
+SELECT * FROM menu_items WHERE category = "Italian" ORDER BY price DESC;
+```
+<img src="Images/1_5_1.png" width="400" />
+<img src="Images/1_5_2.png" width="400" />
+
+### 6. Count the number of dishes and the average price in each category
+   
+   ```sql
+SELECT category, COUNT(menu_item_id) AS num_dishes, AVG(price) AS avg_price  
+FROM menu_items GROUP BY category;
+```
+<img src="Images/1_6.png" width="200" />
+
+### 7. Calculate the average price per category
+
+
+
+
+
 
    
 - Data exploration and preparation for analysis.
