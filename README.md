@@ -118,12 +118,62 @@ HAVING num_items > 12) AS num_orders;
 
 ## 💵Customer Preferences & Spending Trends
 ### 1. Combining the `menu_items` and `order_details` tables
-To get a comprehensive view
-<img src="Images/3_1.png" width="300" />
+This step allows to get a comprehensive view of orders along with their respective details, such as item names and prices.
+```sql
+SELECT * 
+FROM order_details od LEFT JOIN menu_items mi
+	ON od.item_id = mi.menu_item_id;
+```
+<img src="Images/3_1.png" width="500" />
 
 ### 2. Identifying the least and most Ordered Items, and their Categories
+The least ordered item is **Chicken Tacos** (Mexican)- 123   
+The most ordered items is **Humburger**(American)-622
+```sql
+SELECT item_name, COUNT(order_details_id) AS num_purchases
+FROM order_details od LEFT JOIN menu_items mi
+ON od.item_id = mi.menu_item_id
+GROUP BY item_name
+Order by num_purchases;
+```
+<img src="Images/3_2_1.png" width="500" />
 
+```sql
+SELECT item_name, COUNT(order_details_id) AS num_purchases
+FROM order_details od LEFT JOIN menu_items mi
+ON od.item_id = mi.menu_item_id
+GROUP BY item_name
+Order by num_purchases DESC;
+``` 
+<img src="Images/3_2_2.png" width="500" />
 
+### 3. Identifying the Top 5 the most expensive Orders
+The top 5 of the most expensive orders run between $185.10 AND $192.15 
+```sql
+SELECT order_id, SUM(price) AS total_spend 
+FROM order_details od LEFT JOIN menu_items mi
+	ON od.item_id = mi.menu_item_id
+GROUP BY order_id
+ORDER BY total_spend DESC
+LIMIT 5;
+```
+<img src="Images/3_3.png" width="200" />
+
+### 4. Viewing the details of the highest order
+The Italian food ordered the most in the highest order 440, the most popular are 
+two dishes: Spaghetti&Meatballs and Fettuccine Alredo.   
+```sql
+SELECT category, item_name, price, COUNT(item_id) AS num_items 
+FROM order_details od LEFT JOIN menu_items mi
+	ON od.item_id = mi.menu_item_id
+WHERE order_id = 440
+GROUP BY category, item_name, price
+ORDER BY num_items DESC;
+```
+<img src="Images/3_4.png" width="400" />
+
+### 5. Viewing the details of the Top 5 Highest Spent Orders
+As the top 5 of the highest 
 
 
 
