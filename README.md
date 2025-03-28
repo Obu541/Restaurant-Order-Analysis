@@ -97,8 +97,31 @@ SELECT COUNT(*) FROM order_details;
 ```
 <img src="Images/2_4.png" width="100" />
 
-### 5. Finding the orders with the most i
-<img src="Images/2_5.png" width="150" />
+### 5. Finding the orders with the most items
+```sql
+SELECT order_id, COUNT(item_id) AS num_items 
+FROM order_details
+GROUP BY order_id
+ORDER BY num_items DESC;
+```
+<img src="Images/2_5.png" width="200" />
+
+### 6. Finding number of orders with more than 12 items
+```sql
+SELECT COUNT(*) FROM
+(SELECT order_id, COUNT(item_id) AS num_items 
+FROM order_details
+GROUP BY order_id
+HAVING num_items > 12) AS num_orders;
+```
+<img src="Images/2_6.png" width="100" />
+
+## 💵Customer Preferences & Spending Trends
+### 1. Combining the `menu_items` and `order_details` tables
+To get a comprehensive view
+<img src="Images/3_1.png" width="300" />
+
+### 2. Identifying the least and most Ordered Items, and their Categories
 
 
 
