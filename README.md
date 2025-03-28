@@ -14,9 +14,9 @@ Together, these tables allow for a comprehensive analysis of menu performance an
 - Analyze Customer Order Behavior: Track total orders, order frequency, and item popularity.
 - Identify Revenue Drivers: Determine high-value orders and top-spending customers
 
-## Steps
+## 🍽️ Menu Analysis
 ### 1. Explore the `menu_items` table
-To get an idea of what's on the new menu, I explored the `menu_items` table, which includes details like item names, categories, and prices.  
+This includes details like item names, categories, and prices.  
    ```sql
    SELECT * FROM menu_items;
    ```
@@ -64,7 +64,20 @@ FROM menu_items GROUP BY category;
 ```
 <img src="Images/1_6.png" width="200" />
 
-### 7. 
+## 🛒 Order Analisys
+### 1. Explore the `order_details` table
+This includes details such as order IDs, item IDs, order dates, and order times.
+```sql
+SELECT * FROM order_details;
+```
+<img src="Images/order_details_table.png" width="400" />
+
+### 2. Finding the date range of the table
+The earliest and latest dates within the order_details table - 
+```sql
+SELECT MIN(order_date), MAX(order_date) FROM order_details;
+```
+
 
 
 
