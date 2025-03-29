@@ -136,8 +136,8 @@ FROM order_details od LEFT JOIN menu_items mi
 <img src="Images/3_1.png" width="500" />
 
 ### 2. Identifying the top 5 least and most Ordered Items, their Categories and Prices
-The top 5 least ordered item are **Chicken Tacos** (Mexican),    
-The top 5 most ordered items are  **Humburger**(American),
+The top 5 least ordered item are mostly Mexican     
+The top 5 most ordered items are mostly American and Asian
 ```sql
 SELECT item_name, COUNT(order_details_id) AS num_purchases
 FROM order_details od LEFT JOIN menu_items mi
@@ -194,27 +194,32 @@ GROUP BY order_id, category;
 ```
 <img src="Images/3_5.png" width="200" />
 
-- The analysis showed that Italian food was consistently the most popular in these high-value orders.
 
 ## 🔥 Key Insights:
+
 ### 1. Menu Composition & Pricing Analysis:
 - The menu consists of 32 dishes, with a mix of categories including American, Asian, Italian, and Mexican.
-- The most expensive item is Shrimp Scampi ($19.95), the least expensive 
+- The most expensive item is **Shrimp Scampi** (Italian, $19.95), and the least expensive is **Edamame** (Asian, $5.00)
+
 ### 2. Customer Preferences & Ordering Trends:
+- The **Top 5 most ordered items** are mainly **American** and **Asian** with **Hamburger** (American) leading
+- The **Top 5 least ordered items** are almost entirely **Mexican**, with **Chicken Tacos** (Mexican) being the least popular dish. 
+- The analysis showed that **Italian Food** was consistently prefered in the highest-value orders.
 
-Hamburgers (American) and Chicken Tacos (Mexican) are the most ordered items, with Hamburgers having the highest number of purchases.
+### 3. Revenue & Spending Insights:
+- The **Top 5 spending orders** range between **$185.10 to $192.15**, suggesting opportunities for targeting high-spending customers with premium options.
+- A detailed analysis of the most expensive orders shows a preference for **Italian dishes**, such as **Spaghetti & Meatballs** and **Fettuccine Alfredo**.
+- Even though Italian dishes bring in more revenue due to their higher price, the most popular items are American and Asian dishes, like Hamburger, Edamame, and Korean Beef Bowl.
+- The Korean Beef Bowl ($17.95) was ordered 588 times, while Shrimp Scampi ($19.95) was ordered 239 times.
+  
+## 💡 Recomendations:
+### 1. Menu Optimization:  
+**Create Combo Deals:** Create bundled meals for popular items to boost sales and make it easier for customers to order more.  
+**Reevaluate Pricing Strategy:** Balance high-end and budget-friendly items to appeal to a variety of customers and maximize sales.
 
-Shrimp Scampi is the most expensive dish, while Chicken Tacos is the least ordered.
+### 2. Customer Engagement & Upselling:  
+**Target High-Spenders:** Reward loyal, big-spending customers with exclusive deals and incentives to keep them coming back.  
+**Promote Bestsellers:** Highlight popular items like Hamburgers, Edamame and Korean Beef Bowl, and suggest extras to increase the average order value.
 
-20 orders contain more than 12 items, indicating a possible opportunity for upselling and bundle promotions.
-
-Revenue & Spending Insights:
-
-Top spending orders range between $185.10 to $192.15, which suggests opportunities for targeting high-spending customers with premium options.
-
-Detailed analysis of the most expensive orders shows a preference for Italian dishes such as Spaghetti & Meatballs and Fettuccine Alfredo.
-
-## 💡 What recomendations can be offered:
-- Since the evening hours are not busy, the store may lose money by staying open after 6 pm. It’s worth considering adjusting the store’s operating hours.  
-- Offering discounts and promotions to customers in slow hours could encourage more people to visit when the store isn’t already overwhelmed.   
-- Promoting items like breakfast sandwiches or pastries alongside coffee during peak hours could increase the average transaction value. 
+### 3. Customer Feedback:  
+**Get Feedback:** Ask customers what they think about new menu items and make quick changes based on their input to keep them happy.
