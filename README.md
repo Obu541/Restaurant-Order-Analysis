@@ -1,6 +1,6 @@
 # Restaurant-Order-Analysis
 This project explores and analyzes order data of **Taste of the World Cafe** focusing on customer purchases of the restaurant's new menu items between January and March 2023.   
-The goal of this project is to identify which menu items are doing well and which are not, as well as to analyze customer preferences and make recommendations for improving restaurant operations.  
+The goal of this project is to identify which menu items are performing well and which are not, as well as to analyze customer preferences and make recommendations for improving restaurant operations.  
 
 🚀 **Project Overview**
 - The original dataset consists of **two tables**:
@@ -10,18 +10,18 @@ Together, these tables allow for a comprehensive analysis of menu performance an
 - This project is part of a guided course from [Maven Analytics](https://www.mavenanalytics.io/). The dataset and project structure were provided, but all **data preparation, analysis, and visualization were completed by me**.
 
 ## 📚 Project Objectives:
-- Understand Menu Composition & Pricing: Identify the number of dishes, their price range, and distribution across categories.
-- Analyze Customer Order Behavior: Track total orders, order frequency, and item popularity.
-- Identify Revenue Drivers: Determine high-value orders and top-spending customers
+- **Understand Menu Composition & Pricing:** Identify the number of dishes, their price range, and distribution across categories.
+- **Analyze Customer Order Behavior:** Track total orders, order frequency, and item popularity.
+- **Identify Revenue Drivers:** Determine high-value orders and top-spending customers
 
 ## 💻  Technology Used:
 SQL (MySQL Workbench)
 
 ## 🚀 How to Use This Project
-To explore the analysis, open SQL_Files Folder and download all .sql files to your computer:
+To explore the analysis, open SQL_Files Folder and download all `.sql` files to your computer:  
 👉 [Open SQL_Files](https://github.com/Obu541/Restaurant-Order-Analysis/tree/main/SQL_Files)   
    (Recommended: Open link in a new tab)  
-👉 Prefer a quick look? Scroll down to preview key data insights and dashboards for each shop—no need to open the full project!
+👉 Prefer a quick look? Scroll down to preview key data insights and examples of queries for the restaurant — no need to open the full project!
 
 ## 🍽️ Menu Analysis 
 ### 1. Explore the `menu_items` table
@@ -39,8 +39,8 @@ This includes details like item names, categories, and prices.
 <img src="Images/1_2.png" width="100" />
 
 ###  3. Identify the least and most expensive items
-   Least expensive: Edamame(Asian) - $5.00  
-   Most expensive: Shrimp Scampi(Italian) - $19.95
+   Least expensive: **Edamame**(Asian) - $5.00  
+   Most expensive: **Shrimp Scampi**(Italian) - $19.95
 ```sql
 SELECT * FROM menu_items ORDER BY price;
 SELECT * FROM menu_items ORDER BY price DESC;
@@ -56,8 +56,8 @@ SELECT COUNT(*) FROM menu_items WHERE category = "Italian";
 <img src="Images/1_4.png" width="100" />
 
 ### 5. Identify the least and most expensive Italian dishes  
-   Least expensive: Spaghetti - $14.50  
-   Most expensive: Shrimp Scampi - $19.95
+   Least expensive: **Spaghetti** - $14.50  
+   Most expensive: **Shrimp Scampi** - $19.95
 ```sql
 SELECT * FROM menu_items WHERE category = "Italian" ORDER BY price;
 SELECT * FROM menu_items WHERE category = "Italian" ORDER BY price DESC;
@@ -136,8 +136,8 @@ FROM order_details od LEFT JOIN menu_items mi
 <img src="Images/3_1.png" width="500" />
 
 ### 2. Identifying the top 5 least and most Ordered Items, their Categories and Prices
-The top 5 least ordered item are mostly Mexican     
-The top 5 most ordered items are mostly American and Asian
+The top 5 least ordered item are mostly **Mexican**     
+The top 5 most ordered items are mostly **American** and **Asian**
 ```sql
 SELECT item_name, COUNT(order_details_id) AS num_purchases
 FROM order_details od LEFT JOIN menu_items mi
@@ -159,7 +159,7 @@ Limit 5;
 <img src="Images/3_2_2.png" width="500" />
 
 ### 3. Identifying the Top 5 the most expensive Orders
-The top 5 of the most expensive orders run between $185.10 AND $192.15 
+The top 5 of the most expensive orders run between **$185.10 AND $192.15** 
 ```sql
 SELECT order_id, SUM(price) AS total_spend 
 FROM order_details od LEFT JOIN menu_items mi
@@ -171,8 +171,8 @@ LIMIT 5;
 <img src="Images/3_3.png" width="200" />
 
 ### 4. Viewing the details of the highest order
-The Italian food ordered the most in the highest order 440, the most popular are 
-two dishes: Spaghetti&Meatballs and Fettuccine Alredo.   
+The **Italian food** ordered the most in the highest order (Order ID: 440). The most popular
+dishes are **Spaghetti & Meatballs** and **Fettuccine Alredo**.   
 ```sql
 SELECT category, item_name, price, COUNT(item_id) AS num_items 
 FROM order_details od LEFT JOIN menu_items mi
@@ -184,7 +184,7 @@ ORDER BY num_items DESC;
 <img src="Images/3_4.png" width="400" />
 
 ### 5. Viewing the details of the Top 5 Highest Spent Orders
-As the top 5 of the highest orders was identifyed earlier, in this step it is important look on them more in detail.
+As the top 5 highest orders were identified earlier, this step focuses on analyzing them in more detail.
 ```sql
 SELECT order_id, category, COUNT(item_id) AS num_items 
 FROM order_details od LEFT JOIN menu_items mi
@@ -207,19 +207,19 @@ GROUP BY order_id, category;
 - The analysis showed that **Italian Food** was consistently prefered in the highest-value orders.
 
 ### 3. Revenue & Spending Insights:
-- The **Top 5 spending orders** range between **$185.10 to $192.15**, suggesting opportunities for targeting high-spending customers with premium options.
+- The **Top 5 most expensive orders** range between **$185.10 to $192.15**, suggesting opportunities for targeting high-spending customers with premium options.
 - A detailed analysis of the most expensive orders shows a preference for **Italian dishes**, such as **Spaghetti & Meatballs** and **Fettuccine Alfredo**.
-- Even though Italian dishes bring in more revenue due to their higher price, the most popular items are American and Asian dishes, like Hamburger, Edamame, and Korean Beef Bowl.
-- The Korean Beef Bowl ($17.95) was ordered 588 times, while Shrimp Scampi ($19.95) was ordered 239 times.
+- Even though **Italian dishes** bring in more revenue due to their higher price, the most popular items are **American** and **Asian** dishes, like **Hamburger**, **Edamame**, and **Korean Beef Bowl**.
+- The **Korean Beef Bowl** ($17.95) was ordered **588** times, while **Shrimp Scampi** ($19.95) was ordered **239** times.
   
-## 💡 Recomendations:
+## 💡 Recommendations:
 ### 1. Menu Optimization:  
-**Create Combo Deals:** Create bundled meals for popular items to boost sales and make it easier for customers to order more.  
-**Reevaluate Pricing Strategy:** Balance high-end and budget-friendly items to appeal to a variety of customers and maximize sales.
+- **Create Combo Deals:** Create bundled meals for popular items to boost sales and make it easier for customers to order more.  
+- **Reevaluate Pricing Strategy:** Balance high-end and budget-friendly items to appeal to a variety of customers and maximize sales.
 
 ### 2. Customer Engagement & Upselling:  
-**Target High-Spenders:** Reward loyal, big-spending customers with exclusive deals and incentives to keep them coming back.  
-**Promote Bestsellers:** Highlight popular items like Hamburgers, Edamame and Korean Beef Bowl, and suggest extras to increase the average order value.
+- **Target High-Spenders:** Reward loyal, big-spending customers with exclusive deals and incentives to keep them coming back.  
+- **Promote Bestsellers:** Highlight popular items like **Hamburger**, **Edamame**, and **Korean Beef Bowl**, and suggest extras to increase the average order value.
 
 ### 3. Customer Feedback:  
-**Get Feedback:** Ask customers what they think about new menu items and make quick changes based on their input to keep them happy.
+- **Get Feedback:** Ask customers what they think about new menu items and make quick changes based on their input to keep them happy.
